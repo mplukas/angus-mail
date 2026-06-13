@@ -123,6 +123,7 @@ public class SMTPUknownCodeTest {
                 msg.setText("test");
                 t.connect();
                 t.sendMessage(msg, msg.getAllRecipients());
+                fail("Success report SMTPSendFailedException expected");
             } catch (SMTPSendFailedException ex) {
             	// expecting that message sent successfully...
                 assertEquals(250, ex.getReturnCode());
